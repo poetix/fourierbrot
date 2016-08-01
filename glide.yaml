@@ -1,0 +1,3 @@
+package: github.com/poetix/fourierbrot
+import:
+- package: github.com/cryptix/wav.git
