@@ -62,15 +62,14 @@ func display(j int, fftData []complex128) {
 	dest := image.NewRGBA(image.Rect(0, 0, 400, 400))
 	gc := draw2dimg.NewGraphicContext(dest)
 
+	gc.SetStrokeColor(color.RGBA{0xff, 0xff, 0xff, 0xff})
 	gc.SetLineWidth(2)
 	gc.MoveTo(200, 200)
+
 	for i := range fftData {
-		gc.SetStrokeColor(color.RGBA{0xff, uint8(i % 0xff), uint8(j % 0xff), 0x10})
 		x := 200 + (2 * real(fftData[i]))
 		y := 200 + (2 * imag(fftData[i]))
 		gc.LineTo(x, y)
-		gc.Stroke()
-		gc.MoveTo(x, y)
 	}
 	gc.Close()
 	gc.Stroke()
